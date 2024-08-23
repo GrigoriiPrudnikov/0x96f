@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          'min-h-screen antialiased bg-white dark:bg-black',
+          'min-h-screen antialiased bg-white dark:bg-black text-black dark:text-white',
           GeistMono.className
         )}
       >
