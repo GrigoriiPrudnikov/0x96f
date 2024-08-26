@@ -1,5 +1,12 @@
-import { Card } from '../ui'
+'use client'
 
-export function WorkSpaceEditor() {
-  return <Card className="p-4 h-full"></Card>
+import { Textarea } from '../ui'
+
+export function Editor() {
+  return (
+    <Textarea
+      className="w-full h-full resize-none focus-visible:ring-0"
+      placeholder="Start typing your note here"
+    />
+  )
 }

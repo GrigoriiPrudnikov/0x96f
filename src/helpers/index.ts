@@ -1,1 +1,1 @@
-export * from './groupNotesToFolders'
+export * from './sortNotesAndFolders'
