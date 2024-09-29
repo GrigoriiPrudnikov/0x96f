@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import { ThemeProvider } from '@/providers'
+import { AuthProvider, ThemeProvider } from '@/providers'
 import { GeistMono } from 'geist/font/mono'
 import type { Metadata } from 'next'
 import { ReactNode } from 'react'
@@ -29,14 +29,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <AuthProvider>{children}</AuthProvider>
         </ThemeProvider>
       </body>
     </html>
   )
 }
-
-/*
-
-
-*/

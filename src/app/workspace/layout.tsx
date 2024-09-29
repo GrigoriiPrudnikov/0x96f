@@ -6,7 +6,7 @@ export default function Layout({
 }: Readonly<{ children: ReactNode }>) {
   return (
     <>
-      <main className="p-8 h-screen flex justify-between gap-8">
+      <main className="p-4 h-screen flex justify-between gap-4">
         <div className="w-1/4">
           <WorkspaceSidebar />
         </div>
