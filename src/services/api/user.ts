@@ -6,32 +6,40 @@ export async function createUser(
   username: string,
   password: string
 ): Promise<User | null> {
-  const response = await ky.post<User>(API_USER_URL, {
-    json: {
-      username,
-      password,
-    },
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
+  try {
+    const response = await ky.post<User>(API_USER_URL, {
+      json: {
+        username,
+        password,
+      },
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
 
-  if (!response.ok) return null
+    if (!response.ok) return null
 
-  return response.json()
+    return response.json()
+  } catch (e) {
+    return null
+  }
 }
 
 export async function getUser(accessToken: string): Promise<User | null> {
-  const response = await ky.get<User>(API_USER_URL, {
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${accessToken}`,
-    },
-  })
+  try {
+    const response = await ky.get<User>(API_USER_URL, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken}`,
+      },
+    })
 
-  if (!response.ok) return null
+    if (!response.ok) return null
 
-  return response.json()
+    return response.json()
+  } catch (e) {
+    return null
+  }
 }
 
 // export async function getUserWorkspaces({

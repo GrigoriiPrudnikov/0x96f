@@ -1,14 +1,31 @@
-import { Note } from '@/interfaces'
-import { File } from 'lucide-react'
+'use client'
 
-export function SidebarNote({ note }: Readonly<{ note: Note }>) {
+import { formatDate } from '@/helpers'
+import { Note } from '@/interfaces'
+import clsx from 'clsx'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
+interface Props {
+  note: Note
+}
+
+export function SidebarNote({ note }: Props) {
+  const pathname = usePathname()
+
+  const isActive = pathname.split('/').at(-1) === String(note.id)
+
   return (
-    <a
-      href={`/workspace/note/${note.id}`}
-      className="flex items-center gap-2 p-2 hover:underline"
-    >
-      <File className="h-5 w-5 text-zinc-600" />
-      <div className="truncate text-sm">{note.title}</div>
-    </a>
+    <div className={clsx('px-8 py-2 text-zinc-500', isActive && 'text-white')}>
+      <Link href={`/workspace/note/${note.id}`}>
+        <div>
+          <div className="truncate">{note.title}</div>
+          <div className="truncate text-sm">
+            <span className="mr-2">{formatDate(note.lastTimeModified)}</span>{' '}
+            {note.content}
+          </div>
+        </div>
+      </Link>
+    </div>
   )
 }

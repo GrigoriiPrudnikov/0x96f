@@ -1,34 +1,19 @@
 'use client'
 
-import {
-  Card,
-  ScrollArea,
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from '../ui'
+import { useStore } from '@/store'
+import { SidebarNote } from './sidebarNote'
 
 export function WorkspaceSidebar() {
+  const { notes } = useStore()
+  const sortedNotes = notes.sort(
+    (a, b) => Number(b.lastTimeModified) - Number(a.lastTimeModified)
+  )
+
   return (
-    <Card className="p-4 h-full flex flex-col justify-between">
-      <ScrollArea className="h-full"></ScrollArea>
-      <div className="flex gap-2">
-        <Select defaultValue="personal">
-          <SelectTrigger className="w-full">
-            <SelectValue placeholder="Select a fruit" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectLabel>Workspaces</SelectLabel>
-              <SelectItem value="personal">Personal</SelectItem>
-            </SelectGroup>
-          </SelectContent>
-        </Select>
-      </div>
-    </Card>
+    <div className="h-full p-4">
+      {sortedNotes.map(note => (
+        <SidebarNote note={note} key={note.id} />
+      ))}
+    </div>
   )
 }

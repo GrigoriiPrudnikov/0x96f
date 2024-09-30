@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
 import { AuthProvider, ThemeProvider } from '@/providers'
-import { GeistMono } from 'geist/font/mono'
+import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
 import { ReactNode } from 'react'
 import './globals.css'
@@ -20,7 +20,7 @@ export default function RootLayout({
       <body
         className={cn(
           'min-h-screen antialiased bg-white dark:bg-black text-black dark:text-white',
-          GeistMono.className
+          GeistSans.className
         )}
       >
         <ThemeProvider

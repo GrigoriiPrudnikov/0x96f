@@ -29,7 +29,73 @@ export const useStore = create<Store & Actions>()(set => ({
   workspaces: [],
   currentWorkspaceId: null,
   folders: [],
-  notes: [],
+  notes: [
+    {
+      id: 1,
+      title: 'Meeting Summary',
+      content:
+        'Discussed project timelines, assigned tasks to team members, and finalized deadlines for the upcoming quarter.',
+      workspaceId: 1,
+      folderId: 1,
+      userId: 1,
+      createdAt: new Date('2024-09-28T10:30:47Z'),
+      lastTimeModified: new Date('2024-09-29T11:45:23Z'),
+    },
+    {
+      id: 2,
+      title: 'Code Review Notes',
+      content:
+        'Reviewed the authentication module, identified potential security loopholes, and suggested improvements for better performance.',
+      workspaceId: 1,
+      folderId: 1,
+      userId: 1,
+      createdAt: new Date('2024-09-28T08:15:32Z'),
+      lastTimeModified: new Date('2024-09-28T16:00:51Z'),
+    },
+    {
+      id: 3,
+      title: 'UI/UX Feedback',
+      content:
+        'The new dashboard design is intuitive, but the navigation needs refinement. Suggested improvements include better iconography and color consistency.',
+      workspaceId: 1,
+      folderId: 1,
+      userId: 1,
+      createdAt: new Date('2024-09-28T09:00:12Z'),
+      lastTimeModified: new Date('2024-09-28T14:30:05Z'),
+    },
+    {
+      id: 4,
+      title: 'Backend Architecture Plan',
+      content:
+        'Outlined the microservices architecture for the backend, focusing on scalability, database design, and API communication protocols.',
+      workspaceId: 1,
+      folderId: 1,
+      userId: 1,
+      createdAt: new Date('2024-09-27T12:45:17Z'),
+      lastTimeModified: new Date('2024-09-27T15:00:33Z'),
+    },
+    {
+      id: 5,
+      title: 'Marketing Strategy Outline',
+      content:
+        'Developed a strategy for social media marketing, focusing on targeted campaigns, content creation, and customer engagement.',
+      workspaceId: 1,
+      folderId: 1,
+      userId: 1,
+      createdAt: new Date('2024-09-26T14:20:46Z'),
+      lastTimeModified: new Date('2024-09-27T10:10:29Z'),
+    },
+    {
+      id: 6,
+      title: 'Some note',
+      content: 'snflksdfsjkdfhkdsjfhksfdhskjdfkjls',
+      workspaceId: 1,
+      folderId: 1,
+      userId: 1,
+      createdAt: new Date('2024-09-30T09:31:09'),
+      lastTimeModified: new Date('2024-09-30T10:52:18'),
+    },
+  ],
 
   // Actions
   setUser: (user: User | null) => set(_state => ({ user })),

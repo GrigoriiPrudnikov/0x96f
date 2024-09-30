@@ -1,1 +1,1 @@
-export * from './sortNotesAndFolders'
+export * from './formatDate'
