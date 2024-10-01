@@ -30,7 +30,7 @@ export async function login(
 }
 
 interface RefreshTokenReposne {
-  access_token: string
+  accessToken: string
 }
 
 export async function refreshToken(
@@ -47,7 +47,7 @@ export async function refreshToken(
 
     if (!response.ok) return null
 
-    return (await response.json()).access_token
+    return (await response.json()).accessToken
   } catch (e) {
     return null
   }

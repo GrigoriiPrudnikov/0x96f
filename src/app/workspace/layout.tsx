@@ -10,10 +10,10 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <>
       <ResizablePanelGroup direction="horizontal" className="min-h-screen">
-        <ResizablePanel minSize={15} maxSize={40}>
+        <ResizablePanel minSize={15} maxSize={30}>
           <WorkspaceSidebar />
         </ResizablePanel>
-        <ResizableHandle withHandle />
+        <ResizableHandle />
         <ResizablePanel>{children}</ResizablePanel>
       </ResizablePanelGroup>
     </>

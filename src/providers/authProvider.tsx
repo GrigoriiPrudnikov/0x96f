@@ -16,7 +16,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    if (PUBLIC_ROUTES.includes(pathname)) return setIsLoading(false)
+    if (PUBLIC_ROUTES.includes(pathname)) {
+      console.log(pathname)
+      setIsLoading(false)
+      return
+    }
 
     async function authenticateUser() {
       const accessToken = localStorage.getItem('accessToken')
@@ -25,8 +29,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (accessToken) {
         const user = await getUser(accessToken)
         if (user) {
-          setIsLoading(false)
           setUser(user)
+          setIsLoading(false)
           return
         }
       }
@@ -37,15 +41,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           localStorage.setItem('accessToken', newAccessToken)
           const user = await getUser(newAccessToken)
           if (user) {
-            setIsLoading(false)
             setUser(user)
+            setIsLoading(false)
             return
           }
         }
       }
 
-      setIsLoading(false)
       router.push('/login')
+      setIsLoading(false)
     }
 
     authenticateUser()

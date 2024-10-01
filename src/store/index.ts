@@ -28,7 +28,13 @@ export const useStore = create<Store & Actions>()(set => ({
   refreshToken: null,
   workspaces: [],
   currentWorkspaceId: null,
-  folders: [],
+  folders: [
+    { id: 1, name: 'General sdjfhasdfjhasjkldfhasjdfhkjfhdl' },
+    { id: 2, name: 'Code Reviews' },
+    { id: 3, name: 'UI/UX and Backend Plans' },
+    { id: 4, name: 'Marketing Strategies' },
+    { id: 5, name: 'Miscellaneous' },
+  ],
   notes: [
     {
       id: 1,
@@ -47,7 +53,7 @@ export const useStore = create<Store & Actions>()(set => ({
       content:
         'Reviewed the authentication module, identified potential security loopholes, and suggested improvements for better performance.',
       workspaceId: 1,
-      folderId: 1,
+      folderId: 2,
       userId: 1,
       createdAt: new Date('2024-09-28T08:15:32Z'),
       lastTimeModified: new Date('2024-09-28T16:00:51Z'),
@@ -58,7 +64,7 @@ export const useStore = create<Store & Actions>()(set => ({
       content:
         'The new dashboard design is intuitive, but the navigation needs refinement. Suggested improvements include better iconography and color consistency.',
       workspaceId: 1,
-      folderId: 1,
+      folderId: 3,
       userId: 1,
       createdAt: new Date('2024-09-28T09:00:12Z'),
       lastTimeModified: new Date('2024-09-28T14:30:05Z'),
@@ -69,7 +75,7 @@ export const useStore = create<Store & Actions>()(set => ({
       content:
         'Outlined the microservices architecture for the backend, focusing on scalability, database design, and API communication protocols.',
       workspaceId: 1,
-      folderId: 1,
+      folderId: 3,
       userId: 1,
       createdAt: new Date('2024-09-27T12:45:17Z'),
       lastTimeModified: new Date('2024-09-27T15:00:33Z'),
@@ -80,7 +86,7 @@ export const useStore = create<Store & Actions>()(set => ({
       content:
         'Developed a strategy for social media marketing, focusing on targeted campaigns, content creation, and customer engagement.',
       workspaceId: 1,
-      folderId: 1,
+      folderId: 4,
       userId: 1,
       createdAt: new Date('2024-09-26T14:20:46Z'),
       lastTimeModified: new Date('2024-09-27T10:10:29Z'),
@@ -90,7 +96,7 @@ export const useStore = create<Store & Actions>()(set => ({
       title: 'Some note',
       content: 'snflksdfsjkdfhkdsjfhksfdhskjdfkjls',
       workspaceId: 1,
-      folderId: 1,
+      folderId: null,
       userId: 1,
       createdAt: new Date('2024-09-30T09:31:09'),
       lastTimeModified: new Date('2024-09-30T10:52:18'),
@@ -107,7 +113,3 @@ export const useStore = create<Store & Actions>()(set => ({
   setCurrentWorkspaceId: (id: number) =>
     set(_state => ({ currentWorkspaceId: id })),
 }))
-
-// TODO:
-// - add api request functions like: login, get workspace, createNote, etc.
-// - i dont know wtf i am doing

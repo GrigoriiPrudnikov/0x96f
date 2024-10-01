@@ -3,7 +3,7 @@ export interface Note {
   title: string
   content: string
   workspaceId: number
-  folderId: number
+  folderId: number | null
   userId: number
   createdAt: Date
   lastTimeModified: Date
